@@ -144,7 +144,7 @@ class CSR_vm(vrnetlab.VM):
         self.wait_write("ip address 10.0.0.15 255.255.255.0")
         self.wait_write("no shut")
         self.wait_write("exit")
-        self.wait_write("restconf")
+        # self.wait_write("restconf")
         self.wait_write("netconf-yang")
 
         self.wait_write("line vty 0 4")
@@ -185,8 +185,8 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='')
     parser.add_argument('--trace', action='store_true', help='enable trace level logging')
-    parser.add_argument('--username', default='vrnetlab', help='Username')
-    parser.add_argument('--password', default='VR-netlab9', help='Password')
+    parser.add_argument('--username', default='cisco', help='Username')
+    parser.add_argument('--password', default='cisco', help='Password')
     parser.add_argument('--install', action='store_true', help='Install CSR')
     args = parser.parse_args()
 

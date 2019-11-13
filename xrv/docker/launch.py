@@ -117,6 +117,10 @@ class XRV_vm(vrnetlab.VM):
 
         self.wait_write("terminal length 0")
 
+        #
+        # Due to unsupport ssh for some iosxr image so i decided to disable ssh and use telnet instead
+        #
+        '''
         self.wait_write("crypto key generate rsa")
         # check if we are prompted to overwrite current keys
         (ridx, match, res) = self.tn.expect([b"How many bits in the modulus",
@@ -127,6 +131,7 @@ class XRV_vm(vrnetlab.VM):
                 self.wait_write("2048", None)
             elif ridx == 1: # press return to get started, so we press return!
                 self.wait_write("no", None)
+        '''
 
         # make sure we get our prompt back
         self.wait_write("")
@@ -174,8 +179,8 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='')
     parser.add_argument('--trace', action='store_true', help='enable trace level logging')
-    parser.add_argument('--username', default='vrnetlab', help='Username')
-    parser.add_argument('--password', default='VR-netlab9', help='Password')
+    parser.add_argument('--username', default='cisco', help='Username')
+    parser.add_argument('--password', default='cisco', help='Password')
     args = parser.parse_args()
 
     LOG_FORMAT = "%(asctime)s: %(module)-10s %(levelname)-8s %(message)s"
