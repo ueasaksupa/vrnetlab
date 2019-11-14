@@ -49,5 +49,5 @@ vrbridge() {
 	VR2=$3
 	VP2=$4
 
-	docker run -d  --name "bridge-${VR1}-${VP1}-${VR2}-${VP2}" --link $VR1 --link $VR2 vr-xcon --p2p "${VR1}/${VP1}--${VR2}/${VP2}"
+	docker run -d  --name "bridge-${VR1}-${VP1}-${VR2}-${VP2}" --link $VR1 --link $VR2 vrnetlabv/vr-xcon --p2p "${VR1}/${VP1}--${VR2}/${VP2}"
 }
